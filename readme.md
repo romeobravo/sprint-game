@@ -1,0 +1,1 @@
+webpack --progress --colors --watch ./public/js/app.js ./public/js/bundle.js
