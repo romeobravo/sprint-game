@@ -90,6 +90,7 @@ class App extends React.Component {
             cardId={card.id}
             title={card.title}
             weight={card.weight}
+            player={card.player}
             swapping={self.state.swapping}
             adding={self.state.adding}
             swap={self.swapCard.bind(self)}

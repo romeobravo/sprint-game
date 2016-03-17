@@ -8,11 +8,13 @@ function swappable(props) {
 
 function SprintCard(props) {
   let button = swappable(props) ? <div className="card-action" onClick={() => props.swap(props.cardId)}>Swap</div> : null
+  let classes = 'card-border ' + props.player
   return (
     <div className="card sprint-card">
       <div className="card-title">{props.title}</div>
       <div className="card-weight">{props.weight}</div>
       {button}
+      <div className={classes}></div>
     </div>
   )
 }

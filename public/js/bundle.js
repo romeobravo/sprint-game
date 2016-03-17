@@ -19685,19 +19685,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Players = __webpack_require__(163);
+	var _Players = __webpack_require__(160);
 
 	var _Players2 = _interopRequireDefault(_Players);
 
-	var _Phase = __webpack_require__(162);
+	var _Phase = __webpack_require__(161);
 
 	var _Phase2 = _interopRequireDefault(_Phase);
 
-	var _Card = __webpack_require__(160);
+	var _Card = __webpack_require__(162);
 
 	var _Card2 = _interopRequireDefault(_Card);
 
-	var _SprintCard = __webpack_require__(161);
+	var _SprintCard = __webpack_require__(163);
 
 	var _SprintCard2 = _interopRequireDefault(_SprintCard);
 
@@ -19810,6 +19810,7 @@
 	              cardId: card.id,
 	              title: card.title,
 	              weight: card.weight,
+	              player: card.player,
 	              swapping: self.state.swapping,
 	              adding: self.state.adding,
 	              swap: self.swapCard.bind(self),
@@ -19900,6 +19901,113 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function turn(state, player) {
+	  return state.game ? state.game.players[player].turn == true : false;
+	} /* React */
+
+
+	function score(state, player) {
+	  var scr = 0;
+	  console.log(state.game.sprint);
+	  for (var card in state.game.sprint) {
+	    if (state.game.sprint[card] && state.game.sprint[card].player == player) {
+	      scr += state.game.sprint[card].weight;
+	    }
+	  }
+	  return scr;
+	}
+
+	var names = {
+	  red: 'Customer',
+	  blue: 'Product Owner',
+	  green: 'Scrum Master',
+	  yellow: 'Developer'
+	};
+
+	function Players(props) {
+	  var players = ['red', 'blue', 'green', 'yellow'].map(function (color) {
+	    var classes = turn(props.state, color) ? color + ' player turn' : color + ' player';
+	    return _react2.default.createElement(
+	      'div',
+	      { className: classes, key: color },
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        names[color].toUpperCase()
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        score(props.state, color)
+	      )
+	    );
+	  });
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'players' },
+	    players
+	  );
+	}
+
+	exports.default = Players;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function turn(state, player) {
+	  return state.game ? state.game.players[player].turn == true : false;
+	} /* React */
+
+
+	function Phase(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'phase' },
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      'Phase: ',
+	      props.state.game.phase
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      props.state.game.phase == 2 ? 'Turns: ' + props.state.game.turns : null
+	    )
+	  );
+	}
+
+	exports.default = Phase;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -19956,10 +20064,10 @@
 	exports.default = Card;
 
 /***/ },
-/* 161 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19979,127 +20087,32 @@
 
 	function SprintCard(props) {
 	  var button = swappable(props) ? _react2.default.createElement(
-	    "div",
-	    { className: "card-action", onClick: function onClick() {
+	    'div',
+	    { className: 'card-action', onClick: function onClick() {
 	        return props.swap(props.cardId);
 	      } },
-	    "Swap"
+	    'Swap'
 	  ) : null;
+	  var classes = 'card-border ' + props.player;
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "card sprint-card" },
+	    'div',
+	    { className: 'card sprint-card' },
 	    _react2.default.createElement(
-	      "div",
-	      { className: "card-title" },
+	      'div',
+	      { className: 'card-title' },
 	      props.title
 	    ),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "card-weight" },
+	      'div',
+	      { className: 'card-weight' },
 	      props.weight
 	    ),
-	    button
+	    button,
+	    _react2.default.createElement('div', { className: classes })
 	  );
 	}
 
 	exports.default = SprintCard;
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function turn(state, player) {
-	  return state.game ? state.game.players[player].turn == true : false;
-	} /* React */
-
-
-	function score(state, player) {
-	  var scr = 0;
-	  console.log(state.game.sprint);
-	  for (var card in state.game.sprint) {
-	    if (state.game.sprint[card] && state.game.sprint[card].player == player) {
-	      scr += state.game.sprint[card].weight;
-	    }
-	  }
-	  return scr;
-	}
-
-	function Phase(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'phase' },
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      'Phase: ',
-	      props.state.game.phase
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      'Score: ',
-	      score(props.state, props.player)
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      props.state.game.phase == 2 ? 'Turns: ' + props.state.game.turns : null
-	    )
-	  );
-	}
-
-	exports.default = Phase;
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function turn(state, player) {
-	  return state.game ? state.game.players[player].turn == true : false;
-	} /* React */
-
-
-	function Players(props) {
-	  var players = ['red', 'blue', 'green', 'yellow'].map(function (color) {
-	    var classes = turn(props.state, color) ? color + ' player turn' : color + ' player';
-	    return _react2.default.createElement(
-	      'div',
-	      { className: classes, key: color },
-	      color.toUpperCase()
-	    );
-	  });
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'players' },
-	    players
-	  );
-	}
-
-	exports.default = Players;
 
 /***/ }
 /******/ ]);

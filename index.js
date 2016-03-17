@@ -67,79 +67,127 @@ function initialState() {
     cards: [
       {
         id: 0,
-        title: 'abc1',
-        weight: 3,
+        title: 'User Story 1',
+        weight: 1,
         sprint: false
       },
       {
         id: 1,
-        title: 'def2',
-        weight: 2,
+        title: 'User Story 2',
+        weight: 1,
         sprint: false
       },
       {
         id: 2,
-        title: 'abc3',
-        weight: 4,
-        sprint: false
-      },
-      {
-        id: 3,
-        title: 'def4',
-        weight: 5,
-        sprint: false
-      },
-      {
-        id: 4,
-        title: 'abc5',
-        weight: 15,
-        sprint: false
-      },
-      {
-        id: 5,
-        title: 'def6',
-        weight: 6,
-        sprint: false
-      },
-      {
-        id: 6,
-        title: 'def7',
+        title: 'User Story 3',
         weight: 2,
         sprint: false
       },
       {
+        id: 3,
+        title: 'User Story 4',
+        weight: 2,
+        sprint: false
+      },
+      {
+        id: 4,
+        title: 'User Story 5',
+        weight: 3,
+        sprint: false
+      },
+      {
+        id: 5,
+        title: 'User Story 6',
+        weight: 3,
+        sprint: false
+      },
+      {
+        id: 6,
+        title: 'User Story 7',
+        weight: 3,
+        sprint: false
+      },
+      {
         id: 7,
-        title: 'abc8',
+        title: 'User Story 8',
         weight: 4,
         sprint: false
       },
       {
         id: 8,
-        title: 'def9',
-        weight: 5,
-        sprint: false
-      },
-      {
-        id: 9,
-        title: 'def10',
-        weight: 2,
-        sprint: false
-      },
-      {
-        id: 10,
-        title: 'abc11',
+        title: 'User Story 9',
         weight: 4,
         sprint: false
       },
       {
-        id: 11,
-        title: 'def12',
+        id: 9,
+        title: 'User Story 10',
+        weight: 4,
+        sprint: false
+      },
+      {
+        id: 10,
+        title: 'User Story 11',
         weight: 5,
         sprint: false
       },
+      {
+        id: 11,
+        title: 'User Story 12',
+        weight: 5,
+        sprint: false
+      },
+      {
+        id: 12,
+        title: 'User Story 13',
+        weight: 6,
+        sprint: false
+      },
+      {
+        id: 13,
+        title: 'User Story 14',
+        weight: 7,
+        sprint: false
+      },
+      {
+        id: 14,
+        title: 'User Story 15',
+        weight: 7,
+        sprint: false
+      },
+      {
+        id: 15,
+        title: 'User Story 16',
+        weight: 8,
+        sprint: false
+      },
+      {
+        id: 16,
+        title: 'User Story 17',
+        weight: 8,
+        sprint: false
+      },
+      {
+        id: 17,
+        title: 'User Story 18',
+        weight: 9,
+        sprint: false
+      },
+      {
+        id: 18,
+        title: 'User Story 19',
+        weight: 10,
+        sprint: false
+      },
+      {
+        id: 19,
+        title: 'User Story 20',
+        weight: 12,
+        sprint: false
+      }
     ],
     sprint: [],
-    maxWeight: 20,
+    maxWeight: 30,
     currentWeight: 0,
     round: 1,
     phase: 1,
@@ -168,7 +216,7 @@ function disconnect(player) {
 function phase2(out) {
   if(state.cards[out] && state.phase == 1) {
     state.phase = 2
-    state.turns = 8
+    state.turns = 3
   }
 }
 
@@ -261,6 +309,6 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(80, function() {
+http.listen(3000, function() {
   console.log('listening on *:3000');
 });
