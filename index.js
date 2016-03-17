@@ -80,25 +80,25 @@ function initialState() {
       {
         id: 2,
         title: 'User Story 3',
-        weight: 2,
+        weight: 1,
         sprint: false
       },
       {
         id: 3,
         title: 'User Story 4',
-        weight: 2,
+        weight: 1,
         sprint: false
       },
       {
         id: 4,
         title: 'User Story 5',
-        weight: 3,
+        weight: 2,
         sprint: false
       },
       {
         id: 5,
         title: 'User Story 6',
-        weight: 3,
+        weight: 2,
         sprint: false
       },
       {
@@ -110,7 +110,7 @@ function initialState() {
       {
         id: 7,
         title: 'User Story 8',
-        weight: 4,
+        weight: 3,
         sprint: false
       },
       {
@@ -128,7 +128,7 @@ function initialState() {
       {
         id: 10,
         title: 'User Story 11',
-        weight: 5,
+        weight: 4,
         sprint: false
       },
       {
@@ -140,13 +140,13 @@ function initialState() {
       {
         id: 12,
         title: 'User Story 13',
-        weight: 6,
+        weight: 5,
         sprint: false
       },
       {
         id: 13,
         title: 'User Story 14',
-        weight: 7,
+        weight: 6,
         sprint: false
       },
       {
@@ -158,7 +158,7 @@ function initialState() {
       {
         id: 15,
         title: 'User Story 16',
-        weight: 8,
+        weight: 7,
         sprint: false
       },
       {
@@ -170,19 +170,19 @@ function initialState() {
       {
         id: 17,
         title: 'User Story 18',
-        weight: 9,
+        weight: 8,
         sprint: false
       },
       {
         id: 18,
         title: 'User Story 19',
-        weight: 10,
+        weight: 9,
         sprint: false
       },
       {
         id: 19,
         title: 'User Story 20',
-        weight: 12,
+        weight: 10,
         sprint: false
       }
     ],
