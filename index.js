@@ -216,7 +216,7 @@ function disconnect(player) {
 function phase2(out) {
   if(state.cards[out] && state.phase == 1) {
     state.phase = 2
-    state.turns = 3
+    state.turns = 7
   }
 }
 

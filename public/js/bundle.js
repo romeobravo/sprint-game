@@ -19854,7 +19854,7 @@
 	                pass,
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'header-action', onClick: _this2.toInitialState.bind(_this2) },
+	                  { className: 'header-action reset', onClick: _this2.toInitialState.bind(_this2) },
 	                  'Reset'
 	                )
 	              ),
@@ -19967,7 +19967,7 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19986,17 +19986,17 @@
 
 	function Phase(props) {
 	  return _react2.default.createElement(
-	    'div',
-	    { className: 'phase' },
+	    "div",
+	    { className: "phase" },
 	    _react2.default.createElement(
-	      'div',
-	      null,
-	      'Phase: ',
+	      "div",
+	      { className: "phase-block" },
+	      "Phase: ",
 	      props.state.game.phase
 	    ),
 	    _react2.default.createElement(
-	      'div',
-	      null,
+	      "div",
+	      { className: "phase-block" },
 	      props.state.game.phase == 2 ? 'Turns: ' + props.state.game.turns : null
 	    )
 	  );

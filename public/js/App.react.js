@@ -123,7 +123,7 @@ class App extends React.Component {
             <div className="name">Sprint-game</div>
             <Phase state={this.state} player={this.props.player} />
             { pass }
-            <div className="header-action" onClick={this.toInitialState.bind(this)}>Reset</div>
+            <div className="header-action reset" onClick={this.toInitialState.bind(this)}>Reset</div>
           </div>
           <Players state={this.state} player={this.props.player}/>
           <section className="sprint">

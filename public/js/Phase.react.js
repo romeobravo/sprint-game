@@ -8,8 +8,8 @@ function turn(state, player) {
 function Phase(props) {
   return (
     <div className="phase">
-      <div>Phase: {props.state.game.phase}</div>
-      <div>{ props.state.game.phase == 2 ? 'Turns: ' + props.state.game.turns : null }</div>
+      <div className="phase-block">Phase: {props.state.game.phase}</div>
+      <div className="phase-block">{ props.state.game.phase == 2 ? 'Turns: ' + props.state.game.turns : null }</div>
     </div>
   )
 }
